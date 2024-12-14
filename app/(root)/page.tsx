@@ -8,9 +8,9 @@ const HomePage = () => {
     <div className="m-4">
       <UserButton />
       <OrganizationList
-        afterCreateOrganizationUrl="/organization/:slug"
-        afterSelectPersonalUrl="/user/:id"
-        afterSelectOrganizationUrl="/organization/:slug"
+        hidePersonal={true}
+        afterCreateOrganizationUrl="/:id"
+        afterSelectOrganizationUrl="/:id"
       />
       <Link href="/create-organization">Perusahaan</Link>
     </div>
