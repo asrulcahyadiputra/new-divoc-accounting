@@ -5,7 +5,6 @@ export default async function onBoardingLayout({
 }) {
   return (
     <div>
-      <div>Main Header</div>
       <div>{children}</div>
     </div>
   );
