@@ -35,6 +35,7 @@ import Image from "next/image";
 import { NavTransactions } from "./nav-transactions";
 import { NavDataStore } from "./navbar-datastore";
 import { NavSetting } from "./nav-setting";
+import { OrganizationSwitcher } from "@clerk/nextjs";
 
 // Sample data
 const data = {
@@ -306,7 +307,7 @@ const data = {
       items: [
         {
           title: "Daftar Akun",
-          url: "#",
+          url: "/data-store/chart-of-accounts",
         },
         {
           title: "Data Cabang",
@@ -371,9 +372,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavTransactions items={data.NavTransaction} />
         <NavSetting items={data.navSetting} />
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.user} />
-      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );

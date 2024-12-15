@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkLoaded, ClerkLoading, ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Divoc Accounting",
@@ -16,7 +16,16 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>{children}</body>
+        <body>
+          <ClerkLoading>
+            <div className="flex items-center justify-center h-screen bg-gray-50">
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-20 h-20 border-4 border-orange-500 rounded-full border-t-transparent animate-spin"></div>
+              </div>
+            </div>
+          </ClerkLoading>
+          <ClerkLoaded>{children}</ClerkLoaded>
+        </body>
       </html>
     </ClerkProvider>
   );

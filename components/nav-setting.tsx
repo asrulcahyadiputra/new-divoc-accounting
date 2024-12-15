@@ -18,6 +18,9 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 
+import { useParams, usePathname } from "next/navigation";
+import Link from "next/link";
+
 export function NavSetting({
   items,
 }: {
@@ -32,6 +35,9 @@ export function NavSetting({
     }[];
   }[];
 }) {
+  const patName = usePathname();
+  const params = useParams();
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Pengaturan</SidebarGroupLabel>
@@ -67,9 +73,9 @@ export function NavSetting({
                       <SidebarMenuSubItem key={subItem.title}>
                         <SidebarMenuSubButton asChild>
                           {subItem.url ? (
-                            <a href={subItem.url}>
+                            <Link href={`${params.location_id}/${subItem.url}`}>
                               <span>{subItem.title}</span>
-                            </a>
+                            </Link>
                           ) : (
                             <span>{subItem.title}</span>
                           )}
